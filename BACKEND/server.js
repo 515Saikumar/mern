@@ -6,32 +6,34 @@ require("dotenv").config();
 const app = express();
 
 // ✅ CORS Fix: Allow requests from frontend
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: "http://localhost:5173", // Your React frontend URL (Vite default port is 5173)
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 
 app.use(express.json());
 
 // ✅ MongoDB Connection
 mongoose
-  .connect(process.env.MONGO_URI, {
+  .connect(process.env.MONGO_URI ,
+    {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+    useUnifiedTopology: true
+  }
+  )
   .then(() => console.log("✅ MongoDB Connected"))
   .catch((err) => console.log("❌ DB Error:", err.message));
 
-// ✅ Routes
-const userRoutes = require("./routes/userRoutes");
-app.use("/api/users", userRoutes);
+// ✅ Test Route
+app.get("/api/test", (req, res) => {
+  res.json({ message: "Backend connected!" });
+});
 
-// ✅ Root Test Route
-app.get("/", (req, res) => {
-  res.send("API is running...");
+// ✅ Register Route
+app.post("/api/users/register", (req, res) => {
+  console.log(req.body); // See data in terminal
+  res.status(201).json({ message: "User registered successfully!" });
 });
 
 // ✅ Server Start
