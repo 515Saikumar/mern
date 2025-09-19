@@ -40,6 +40,7 @@ const Register = () => {
     <div className="auth-container">
       <ToastContainer />
       <form className="auth-card" onSubmit={handleSubmit}>
+        <ToastContainer position="top-right" />
         <h2 className="auth-title">Register</h2>
 
         <div className="input-group">

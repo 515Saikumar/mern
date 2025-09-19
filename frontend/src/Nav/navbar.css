@@ -1,0 +1,45 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2575fc;
+  padding: 12px 20px;
+  color: white;
+  position: fixed; /* ✅ Keeps it fixed at the top */
+  top: 0;
+  left: 0;
+  width: 98%;
+  z-index: 1000; /* ✅ Keeps it above all content */
+}
+
+.navbar-logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: greenyellow;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links li {
+  display: inline;
+}
+
+.navbar-links a {
+  color: greenyellow;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.navbar-links a:hover {
+  text-decoration: underline;
+}
+
+/* ✅ Add padding to top of the page content so it doesn't hide behind navbar */
+.page-container {
+  padding: 80px 20px 20px; /* 80px to avoid overlap */
+}
