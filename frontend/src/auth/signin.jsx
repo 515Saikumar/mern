@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
-import "./Auth.css"; // ✅ Import external CSS
+import "./auth.css";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -58,7 +59,7 @@ const SignIn = () => {
         <button type="submit" className="btn">Sign In</button>
 
         <p className="redirect-text">
-          Don’t have an account? <a href="#">Register</a>
+          Don’t have an account? <Link to="/register">Register</Link>
         </p>
       </form>
     </div>

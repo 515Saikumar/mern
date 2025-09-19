@@ -1,11 +1,17 @@
-import { useState } from 'react'
-import './App.css'
-import Register from './Register'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Register from "./auth/Register";
+import SignIn from "./auth/signin";
 
 function App() {
-  <div>
-    <Register />
-  </div>
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<SignIn />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
